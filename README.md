@@ -12,6 +12,10 @@ Prerequisites from APCSA:
 - Selection, Insertion, and Merge Sort
 - Recursion and Inheritance
 
+Prerequistes from Python:
+- Python knowledge equivalent to Java
+- Applied knowledge of sets, dictionaries, and tuples
+
 ## Update Log:
 January 11, 2021 - Started Singly Linked Lists
 <br>
