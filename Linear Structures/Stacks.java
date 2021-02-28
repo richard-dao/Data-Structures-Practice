@@ -68,7 +68,70 @@ public class main {
 
 
 // Stacks as Arrays
+import java.util.ArrayList;
+import java.lang.*;
+public class Stack {
+	int[] stack;
+	int topIndex;
+	public Stack(int length) {
+		stack = new int[length];
+		topIndex = 0;
+	}
+	public boolean isEmpty() {
+		return topIndex == 0;
+	}
+	
+	public int peek() {
+		if (isEmpty()) {
+			return -1;
+		}
+		return stack[topIndex-1];
+	}
+	
+	public void push(int value) {
+		if (topIndex > stack.length-1) {
+			return;
+		}
+		
+		stack[topIndex] = value;
+		topIndex++;
+		return;
+	}
+	
+	public void pop() {
+		if (isEmpty()) {
+			return;
+		}
+		topIndex = topIndex - 1;
+		
+	}
+	
+	public int[] display() {
+		int[] rArr = new int[topIndex];
+		int counter = 0;
+		for (int i = topIndex-1; i > -1; i--) {
+			rArr[counter] = stack[i];
+			counter++;
+		}
+		return rArr;
+	}
+}
 
+import java.util.ArrayList;
+import java.util.Scanner;
+public class main {
+	public static void main(String[] args) {
+		Stack s = new Stack(5);
+		System.out.println(s.isEmpty());
+		s.push(0);
+		s.push(1);
+		s.push(2);
+		s.push(3);
+		s.pop();
+		printS(s.display());
+		System.out.println("Top: " + s.peek());
+	}
+}
 
 
 
