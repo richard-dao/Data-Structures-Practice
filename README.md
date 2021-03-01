@@ -17,7 +17,7 @@ Prerequistes from Python:
 - Applied knowledge of sets, dictionaries, and tuples
 
 ## Update Log:
-January 11, 2021 - Started + Finished Singly Linked Lists [+Java]
+January 11, 2021 - Started + Finished Singly Linked Lists [Java]
 <br>
 February 19, 2021 - Started + Finished Doubly Linked Lists [Java]
 <br>
