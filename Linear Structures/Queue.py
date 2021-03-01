@@ -59,3 +59,66 @@ print(q.peek())
 
 
 # Queues as Arrays
+class Queue(object):
+    def __init__(self, length, headIndex = 0, tailIndex = 0):
+        self.queue = list()
+        self.queue = [None] * length
+        self.headIndex = headIndex
+        self.tailIndex = tailIndex
+
+    def isEmpty(self):
+        return self.headIndex == self.tailIndex
+
+    def peek(self):
+        if (self.isEmpty()):
+            return -1
+        return self.queue[self.headIndex]
+
+    def push(self, value):
+        if (self.tailIndex > len(self.queue)-1):
+             print("Queue Overflow")
+             return
+        self.queue[self.tailIndex] = value
+        self.tailIndex = self.tailIndex + 1
+        if (self.tailIndex > len(self.queue)):
+            self.tailIndex = 0
+        return
+
+    def pop(self):
+        if (self.isEmpty()):
+            print("Queue Underflow")
+            return
+        self.headIndex = self.headIndex + 1
+        if (self.headIndex > len(self.queue)):
+            self.headIndex = 0
+
+    def display(self):
+        rArr = list()
+        if (self.isEmpty()):
+            return rArr
+        if (self.tailIndex < self.headIndex):
+            for x in range(self.headIndex, len(self.queue)):
+                rArr.append(self.queue[x])
+            for x in range(0, self.tailIndex):
+                rArr.append(self.queue[x])
+        else:
+            for x in range(self.headIndex, self.tailIndex):
+                rArr.append(self.queue[x])
+        return rArr
+
+def printS(arr):
+    print()
+    for x in range(0, len(arr)):
+        print(arr[x], end= " ")
+    print()
+
+q = Queue(5)
+print(q.isEmpty())
+q.push(1)
+q.pop()
+q.push(2)
+q.push(3)
+q.push(4)
+q.push(5)
+printS(q.display())
+print(q.peek())
