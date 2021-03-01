@@ -51,3 +51,57 @@ s.pop()
 printS(s.display())
 print(s.peek())
 
+
+# Stacks as Arrays
+class Stack(object):
+    def __init__(self, length, topIndex = 0):
+        self.stack = list()
+        self.stack = [None] * length
+        self.topIndex = topIndex
+
+    def isEmpty(self):
+        return self.topIndex == 0
+
+    def peek(self):
+        if (self.isEmpty()):
+            return -1
+        return self.stack[self.topIndex-1]
+
+    def push(self, value):
+        if (self.topIndex > len(self.stack)-1):
+            return
+        self.stack[self.topIndex] = value
+        self.topIndex = self.topIndex + 1
+        return
+
+    def pop(self):
+        if (self.isEmpty()):
+            return
+        self.topIndex = self.topIndex - 1
+
+    def display(self):
+        if (self.topIndex == 0):
+            return
+        rArr = [None] * self.topIndex
+        counter = 0
+        for x in range(self.topIndex-1, -1, -1):
+            rArr[counter] = self.stack[x]
+            counter = counter + 1
+        return rArr
+
+def printS(arr):
+    print()
+    for x in range(0, len(arr)):
+        print(arr[x], end= " ")
+    print()
+
+
+s = Stack(5)
+print(s.isEmpty())
+s.push(0)
+s.push(1)
+s.push(2)
+s.push(3)
+s.pop()
+printS(s.display())
+print(s.peek())
