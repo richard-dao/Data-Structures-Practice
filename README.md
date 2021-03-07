@@ -31,5 +31,8 @@ February 27, 2021 - Started + Finished Stacks and Queues (as Arrays and Linked L
 <br>
 March 1, 2021 - Implemented Doubly Circular Linked List, Stacks, and Queues into Python [Python]
 <br>
-
+March 5, 2021 - Started Binary Search Trees [Java]
+<br>
+March 6, 2021 - Finished Binary Search Trees [Java]
+<br>
 
