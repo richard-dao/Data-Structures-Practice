@@ -13,7 +13,7 @@ public class TreeNode {
 }
 
 import java.util.ArrayList;
-public class BinaryTree {
+public class BinarySearchTree {
 		TreeNode root;
 	public int insert(TreeNode current, int value) {
 		if (root == null) {
@@ -162,7 +162,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class main {
 	public static void main(String[] args) {
-		BinaryTree b = new BinaryTree();
+		BinarySearchTree b = new BinarySearchTree();
 		
 		b.insert(b.getRoot(), 1);
 		b.insert(b.getRoot(), 3);
