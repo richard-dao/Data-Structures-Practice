@@ -41,3 +41,5 @@ March 12, 2021 - Started (And Put on Hold) B-Trees (2-3-4) [Java]
 <br>
 March 13, 2021 - Start and Finished HashMaps [Java]
 <br>
+March 14, 2021 - Implemented HashMaps into Python [Python]
+<br>
