@@ -35,4 +35,7 @@ March 5, 2021 - Started Binary Search Trees [Java]
 <br>
 March 6, 2021 - Finished Binary Search Trees [Java]
 <br>
-
+March 12, 2021 - Started (And Put on Hold) B-Trees (2-3-4) [Java]
+<br>
+March 13, 2021 - Start and Finished HashMaps [Java]
+<br>
