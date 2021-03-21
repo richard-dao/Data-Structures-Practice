@@ -47,3 +47,5 @@ March 19, 2021 - Explored HashSet and TreeSet Libraries [Java]
 <br>
 March 20, 2021 - Started and Finished TreeMap [Java]
 <br>
+March 21, 2021 - Implemented TreeMaps into Python [Python]
+<br>
