@@ -49,3 +49,5 @@ March 20, 2021 - Started and Finished TreeMap [Java]
 <br>
 March 21, 2021 - Implemented TreeMaps into Python [Python]
 <br>
+March 26, 2021 - Started and Finished Priority Queues (as Linked Lists) [Java]
+<br>
