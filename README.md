@@ -51,3 +51,7 @@ March 21, 2021 - Implemented TreeMaps into Python [Python]
 <br>
 March 26, 2021 - Started and Finished Priority Queues (as Linked Lists) [Java]
 <br>
+March 27, 2021 - Started and Finished Minimum Heap (as Array + converted to Tree) [Java]
+<br>
+March 28, 2021 - Implmented Minimum Heap into Python [Python]
+<br>
