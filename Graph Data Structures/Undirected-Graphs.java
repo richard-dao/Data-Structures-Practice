@@ -92,9 +92,13 @@ public class main {
         g.addEdge(6, 7);
         g.print();
         System.out.println("---");
-        DFS d = new DFS(g, 2);
-
-
+        DFS d = new DFS(g, 0);
+        for (int i : d.pathTo(7)){
+            System.out.print(i);
+            System.out.print(" ");
+        }
+        System.out.println();
+        System.out.println(d.hasPathTo(9));
 
     }
 }
