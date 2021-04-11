@@ -13,7 +13,7 @@ public class Graphs {
 
     public void addEdge(int v, int w){
         adj[w].add(v);
-        adj[v].add(w);
+        adj[v].add(w); // Remove this for Directed Graphs
     }
 
     public Iterable<Integer> returnAdjacent(int v){
@@ -78,9 +78,68 @@ public class DFS {
         return edgeTo;
     }
 }
+
+import java.util.*;
+
+public class BFS{
+    boolean[] marked;
+    int[] edgeTo;
+    int s;
+    public BFS(Graphs graph, int s){
+        this.s = s;
+        marked = new boolean[graph.V];
+        edgeTo = new int[graph.V];
+        bfs(graph, s); 
+    }
+
+    public void bfs(Graphs graph, int v){
+        Queue<Integer> q = new LinkedList<Integer>();
+        marked[s] = true;
+        q.add(s);
+
+        while (q.peek() != null){
+            int n = q.remove();
+            Iterable<Integer> adj = graph.returnAdjacent(n);
+            for (int i : adj){
+                if (!marked[i]){
+                    q.add(i);
+                    marked[i] = true;
+                    edgeTo[i] = n;
+                }
+            }
+        }
+        
+    }
+
+    public Iterable<Integer> shortestPath(int t){
+        if ((hasPathTo(t)) == false){
+            return null;
+        }
+        ArrayList<Integer> path = new ArrayList<Integer>();
+        for (int i = t; i != s; i = edgeTo[i]){
+            path.add(i);
+        }
+        path.add(s);
+        Collections.reverse(path);
+        return path;
+    }
+
+    public boolean hasPathTo(int t){
+        return marked[t];
+    }
+
+    public boolean[] getMarked(){
+        return marked;
+    }
+
+    public int[] getEdgeTo(){
+        return edgeTo;
+    }
+}
+
 public class main {
     public static void main(String[] args){
-        Graphs g = new Graphs(9);
+        Graphs g = new Graphs(10);
         g.addEdge(0, 1);
         g.addEdge(1, 2);
         g.addEdge(1, 4);
@@ -92,13 +151,18 @@ public class main {
         g.addEdge(6, 7);
         g.print();
         System.out.println("---");
-        DFS d = new DFS(g, 0);
+        DFS d = new DFS(g, 2);
+        BFS b = new BFS(g, 2);
         for (int i : d.pathTo(7)){
-            System.out.print(i);
-            System.out.print(" ");
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        for(int i : b.shortestPath(7)){
+            System.out.print(i + " ");
         }
         System.out.println();
         System.out.println(d.hasPathTo(9));
+        System.out.printn(b.hasPathTo(9));
 
     }
 }
