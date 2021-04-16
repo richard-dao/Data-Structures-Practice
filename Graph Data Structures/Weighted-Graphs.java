@@ -39,7 +39,7 @@ public class WeightedGraphs {
         }
     }
 }
-// Implement Djikstra's Algorithm
+// Implement Dijkstra's Algorithm
 
 // Implement Kruskal's Algorithm
 
