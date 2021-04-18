@@ -57,5 +57,11 @@ March 28, 2021 - Implmented Minimum Heap into Python [Python]
 <br>
 April 9, 2021 - Started Undirected Graphs [Java]
 <br>
-April 10, 2021 - Began Implementing Undirected Graphs into Python [Python]
+April 10, 2021 - Began Implementing Unweighted Graphs into Python [Python]
+<br>
+April 11, 2021 - Finished Unweighted Graphs [Java]
+<br>
+April 12, 2021 - Finshed Implementing Unweighted Graphs into Python [Python]
+<br>
+April 16, 2021 - Started Implmenting Directed Graphs [Java]
 <br>
