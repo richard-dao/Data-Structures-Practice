@@ -63,5 +63,8 @@ April 11, 2021 - Finished Unweighted Graphs [Java]
 <br>
 April 12, 2021 - Finshed Implementing Unweighted Graphs into Python [Python]
 <br>
-April 16, 2021 - Started Implmenting Directed Graphs [Java]
+April 16, 2021 - Started Implmenting Weighted Graphs [Java]
 <br>
+April 24, 2021 - Finished Implementing Weighted Graphs [Java]
+<br>
+April 25, 2021 - Implemented Weighted Graphs into Python [Python]
