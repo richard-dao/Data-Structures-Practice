@@ -1,10 +1,12 @@
-//Java
+// Java
 import java.util.*;
 public class Edge implements Comparator<Edge>{
+    int source;
     int connection;
     int weight;
     public Edge(){}
-    public Edge(int connection, int weight){
+    public Edge(int source, int connection, int weight){
+        this.source = source;
         this.connection = connection;
         this.weight = weight;
     }
@@ -18,7 +20,10 @@ public class Edge implements Comparator<Edge>{
         }
         return 0;
     }
+    
 }
+
+// Weighted Graph
 
 import java.util.*;
 public class WeightedGraphs {
@@ -33,8 +38,8 @@ public class WeightedGraphs {
     }
 
     public void addEdge(int v, int w, int weight){
-        adj[v].add(new Edge(w, weight));
-        adj[w].add(new Edge(v, weight));
+        adj[v].add(new Edge(v, w, weight));
+        adj[w].add(new Edge(w, v, weight)); // Comment out line for directed graph
     }
 
     public Iterable<Edge> returnAdjacent(int v){
@@ -52,90 +57,143 @@ public class WeightedGraphs {
     }
 }
 
+// Dijkstra
 
-// Implement Dijkstra's Algorithm
 import java.util.*;
-public class Dijkstra {
-    int[] distTo;
-    int[] edgeTo;
-    Set<Integer> marked;
+public class Dijkstra{
     PriorityQueue<Edge> pq;
+    int[] edgeTo;
+    int[] distTo;
+    Set<Integer> marked;
     int s;
     int V;
     public Dijkstra(WeightedGraphs g, int s){
-        this.s = s;
-        V = g.V;
-        distTo = new int[V];
-        edgeTo = new int[V];
-        marked = new HashSet<Integer>();
+        this.V = g.V;
         pq = new PriorityQueue<Edge>(V, new Edge());
+        edgeTo = new int[V];
+        distTo = new int[V];
+        marked = new HashSet<Integer>();
+        this.s = s;
+        pq.add(new Edge(s, s, 0));
+        distTo[s] = 0;
+        for (int i = 0; i < V; i++){
+            if (i != s){
+                distTo[i] = Integer.MAX_VALUE;
+            }
+        }
+        
         dijkstra(g, s);
     }
 
-    public void dijkstra(WeightedGraphs g, int v){
-        for (int i = 0; i < V; i++){
-            distTo[i] = Integer.MAX_VALUE;
-        }
-        pq.add(new Edge(s, 0));
-        distTo[s] = 0;
-        while (pq.isEmpty() == false){
-            int n = pq.remove().connection;
-            marked.add(n);
-            relaxEdges(g, n);
-        }        
-    }
-
-    public void relaxEdges(WeightedGraphs g, int v){
-        int weight;
-        int totalWeight;
-        for (Edge i : g.returnAdjacent(v)){
-            Edge n = i;
-            if (!marked.contains(n.connection)){
-                weight = n.weight;
-                totalWeight = distTo[v] + weight;
-                if (totalWeight < distTo[n.connection]){
-                    distTo[n.connection] = totalWeight;
-                    edgeTo[n.connection] = v;
+    public void dijkstra(WeightedGraphs g, int s){
+        while (!pq.isEmpty()){
+            Edge n = pq.poll();
+            marked.add(n.connection);
+            for (Edge i : g.returnAdjacent(n.connection)){
+                if (!marked.contains(i.connection)){
+                    if (distTo[n.connection] + i.weight < distTo[i.connection]){
+                        distTo[i.connection] = distTo[n.connection] + i.weight;
+                        edgeTo[i.connection] = n.connection;
+                        pq.add(new Edge(n.connection, i.connection, distTo[i.connection]));
+                    }
                 }
-                pq.add(new Edge(n.connection, distTo[n.connection]));
             }
         }
     }
 
-    public Iterable<Integer> shortestPathTo(int v){
-        if (hasPathTo(v) == false){
+    public Iterable<Integer> pathTo(int t){
+        if ((hasPathTo(t)) == false){
             return null;
         }
         ArrayList<Integer> path = new ArrayList<Integer>();
-        for (int i = v; i != s; i = edgeTo[i]){
+        for (int i = t; i != s; i = edgeTo[i]){
             path.add(i);
         }
         path.add(s);
         Collections.reverse(path);
         return path;
+
     }
 
-    public boolean hasPathTo(int v){
-        if (marked.contains(v)){
+    public boolean hasPathTo(int t){
+        if (marked.contains(t)){
             return true;
         }
         return false;
     }
-    
-    public int[] returnDistTo(){
+
+    public int[] getDistTo(int t){
         return distTo;
     }
 
 }
 
-// Implement Kruskal's Algorithm
+// Kruskal
 
+public class WeightedQuickUnion {
+    int[] sets;
+    public WeightedQuickUnion(int size){
+        sets = new int[size];
+        for (int i = 0; i < size; i++){
+            sets[i] = -1;
+        }
+    }
+
+    public int root(int current){
+        int i = current;
+        while (sets[i] != -1){
+            i = sets[i];
+        }
+        return i;
+    }
+
+    public boolean isConnected(int s, int t){
+        return root(s) == root(t);
+    }
+
+    public void connect(int s, int t){
+        sets[root(s)] = root(t);
+    }
+    
+}
 
 import java.util.*;
+public class Kruskal {
+    PriorityQueue<Edge> pq; // Edges
+    ArrayList<Edge> mst; 
+    public Kruskal(WeightedGraphs wg){
+        mst = new ArrayList<Edge>();
+        pq = new PriorityQueue<Edge>(wg.V, new Edge());
+        for (int i = 0; i < wg.V; i++){
+            for (Edge j : wg.returnAdjacent(i)){
+                pq.add(j);
+            }
+        }
+        kruskal(wg);
+    }
+
+    public void kruskal(WeightedGraphs wg){
+        WeightedQuickUnion wqu = new WeightedQuickUnion(wg.V);
+        while (!pq.isEmpty()){
+            Edge n = pq.poll();
+            if (wqu.isConnected(n.source, n.connection) == false){
+                wqu.connect(n.source, n.connection);
+                mst.add(n);
+            }
+
+        }
+    }
+
+    public Iterable<Edge> returnMST(){
+        return mst;
+    }
+}
+
+import java.util.Map;
 
 public class main {
     public static void main(String[] args){
-        WeightedGraphs wg = new WeightedGraphs(10);
+        WeightedGraphs wg = new WeightedGraphs(11);
         wg.addEdge(0, 1, 1);
         wg.addEdge(1, 2, 2);
         wg.addEdge(1, 4, 3);
@@ -147,17 +205,23 @@ public class main {
         wg.addEdge(6, 7, 9);
         wg.print();
         System.out.println("---");
-        Dijkstra d = new Dijkstra(wg, 0);
-        int[] distTo = d.returnDistTo();
-        for (int i = 0; i < distTo.length; i++){
-            System.out.println(i + " | " + distTo[i] + " ");
-        }
-        System.out.println("---");
-        for (int i : d.shortestPathTo(8)){
+        int start = 3;
+        int end = 1;
+        // O(V + E log V)
+        Dijkstra d = new Dijkstra(wg, start);
+        for (int i : d.pathTo(end)){
             System.out.print(i + " => ");
         }
-
-
+        System.out.println();
+        int[] distTo = d.getDistTo(end);
+        System.out.println(distTo[end]);
+        System.out.println("---");
+        Kruskal k = new Kruskal(wg);
+        System.out.println("MST: ");
+        for (Edge i : k.returnMST()){
+            System.out.println(i.source + " <=> " + i.connection + ": " + i.weight);
+        }
     }
 }
+
 
