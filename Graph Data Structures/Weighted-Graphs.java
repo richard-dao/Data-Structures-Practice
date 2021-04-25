@@ -205,23 +205,27 @@ public class main {
         wg.addEdge(6, 7, 9);
         wg.print();
         System.out.println("---");
-        int start = 3;
-        int end = 1;
+        int start = 0;
+        int end = 7;
         // O(V + E log V)
         Dijkstra d = new Dijkstra(wg, start);
+        System.out.println("Shortest Path From " + start + " to " + end + ": ");
         for (int i : d.pathTo(end)){
             System.out.print(i + " => ");
         }
         System.out.println();
         int[] distTo = d.getDistTo(end);
-        System.out.println(distTo[end]);
+        System.out.println("Total Weight: " + distTo[end]);
         System.out.println("---");
+
         Kruskal k = new Kruskal(wg);
         System.out.println("MST: ");
+
         for (Edge i : k.returnMST()){
             System.out.println(i.source + " <=> " + i.connection + ": " + i.weight);
         }
     }
 }
+
 
 
