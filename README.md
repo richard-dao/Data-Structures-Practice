@@ -39,19 +39,19 @@ March 7, 2021 - Implemented Binary Search Trees into Python [Python]
 <br>
 March 12, 2021 - Started (And Put on Hold) B-Trees (2-3-4) [Java]
 <br>
-March 13, 2021 - Start and Finished HashMaps [Java]
+March 13, 2021 - Start + Finished HashMaps [Java]
 <br>
 March 14, 2021 - Implemented HashMaps into Python [Python]
 <br>
-March 19, 2021 - Explored HashSet and TreeSet Libraries [Java]
+March 19, 2021 - Explored HashSet + TreeSet Libraries [Java]
 <br>
-March 20, 2021 - Started and Finished TreeMap [Java]
+March 20, 2021 - Started + Finished TreeMap [Java]
 <br>
 March 21, 2021 - Implemented TreeMaps into Python [Python]
 <br>
-March 26, 2021 - Started and Finished Priority Queues (as Linked Lists) [Java]
+March 26, 2021 - Started + Finished Priority Queues (as Linked Lists) [Java]
 <br>
-March 27, 2021 - Started and Finished Minimum Heap (as Array + converted to Tree) [Java]
+March 27, 2021 - Started + Finished Minimum Heap (as Array + converted to Tree) [Java]
 <br>
 March 28, 2021 - Implmented Minimum Heap into Python [Python]
 <br>
@@ -69,4 +69,4 @@ April 24, 2021 - Finished Implementing Weighted Graphs [Java]
 <br>
 April 25, 2021 - Implemented Weighted Graphs into Python [Python]
 <br>
-April 26, 2021 - Implemented Singly, Doubly, Circularly, and Doubly-Circular Linked Lists into C++ [C++]
+April 26, 2021 - Implemented Singly, Doubly, Circularly, and Doubly-Circular Linked Lists + Binary Search Trees into C++ [C++]
