@@ -32,7 +32,7 @@ public class LinkedListMap {
 		}
 		
 		LLMNode current = head;
-		while (current != null && !(current.next.equals(key))) {
+		while (current != null && !(current.next.key.equals(key))) {
 			current = current.next;
 		}
 		current.next = current.next.next;
