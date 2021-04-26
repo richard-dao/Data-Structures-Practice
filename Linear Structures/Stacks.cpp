@@ -77,6 +77,72 @@ std::vector<int> Stack::display(){
 }
 
 
+
+//Stack.hpp As Array
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Stack{
+    public:
+        std::vector<int> stack;
+        int topIndex;
+        Stack(int length);
+        bool isEmpty();
+        int peek();
+        void push(int value);
+        void pop();
+        std::vector<int> display();
+};
+
+//Stack.cpp as Array
+#include "Stack.hpp"
+#include <iostream>
+using namespace std;
+Stack::Stack(int length){
+    std::vector<int> temp(length);
+    stack = temp;
+    topIndex = 0;
+}
+
+bool Stack::isEmpty(){
+    return topIndex == 0;
+}
+
+int Stack::peek(){
+    if (isEmpty()){
+        return -1;
+    }
+    return stack[topIndex-1];
+}
+
+void Stack::push(int value){
+    if (topIndex > stack.size() - 1){
+        return;
+    }
+    stack[topIndex] = value;
+    topIndex++;
+    return;
+}
+
+void Stack::pop(){
+    if(isEmpty()){
+        return;
+    }
+    topIndex = topIndex-1;
+}
+
+std::vector<int> Stack::display(){
+    std::vector<int> rArr(topIndex);
+    int counter = 0;
+    for (int i = topIndex-1; i > -1; i--){
+        rArr[counter] = stack[i];
+        counter++;
+    }
+    return rArr;
+}
+
+
 //main.cpp
 #include <iostream>
 #include "Stack.cpp"
