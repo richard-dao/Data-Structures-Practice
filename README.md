@@ -68,3 +68,5 @@ April 16, 2021 - Started Implmenting Weighted Graphs [Java]
 April 24, 2021 - Finished Implementing Weighted Graphs [Java]
 <br>
 April 25, 2021 - Implemented Weighted Graphs into Python [Python]
+<br>
+April 26, 2021 - Implemented Singly, Doubly, Circularly, and Doubly-Circular Linked Lists into C++ [C++]
