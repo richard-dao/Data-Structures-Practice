@@ -85,7 +85,7 @@ std::vector<int> Queue::display(){
 }
 
 
-//Queue.hpp as Arrays
+//Queue.hpp as Array
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -103,7 +103,7 @@ class Queue{
         std::vector<int> display();
 };
 
-//Queue.cpp as Arrays
+//Queue.cpp as Array
 #include "Queue.hpp"
 #include <iostream>
 using namespace std;
