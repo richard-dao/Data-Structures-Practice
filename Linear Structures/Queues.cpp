@@ -84,6 +84,88 @@ std::vector<int> Queue::display(){
     return rArr;
 }
 
+
+//Queue.hpp as Arrays
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Queue{
+    public:
+        std::vector<int> queue;
+        int headIndex;
+        int tailIndex;
+        Queue(int length);
+        bool isEmpty();
+        int peek();
+        void push(int value);
+        void pop();
+        std::vector<int> display();
+};
+
+//Queue.cpp as Arrays
+#include "Queue.hpp"
+#include <iostream>
+using namespace std;
+
+Queue::Queue(int length){
+    std::vector<int> temp(length);
+    queue = temp;
+    headIndex = 0;
+    tailIndex = 0;
+}
+
+bool Queue::isEmpty(){
+    return headIndex == tailIndex;
+}
+
+int Queue::peek(){
+    if (isEmpty()){
+        return -1;
+    }
+    return queue[headIndex];
+}
+
+void Queue::push(int value){
+    queue[tailIndex] = value;
+    tailIndex++;
+    if(tailIndex > queue.size()){
+        tailIndex = 0;
+    }
+    return;
+}
+
+void Queue::pop(){
+    if (isEmpty()){
+        return;
+    }
+    headIndex++;
+    if (headIndex > queue.size()){
+        headIndex = 0;
+    }
+}
+
+std::vector<int> Queue::display(){
+    std::vector<int> rArr;
+    if (isEmpty()){
+        return rArr;
+    }
+    if (tailIndex < headIndex){
+        for (int i = headIndex; i < queue.size(); i++){
+            rArr.push_back(queue[i]);
+        }
+        for (int i = 0; i < tailIndex; i++){
+            rArr.push_back(queue[i]);
+        }
+    }
+    else{
+        for (int i = headIndex; i < tailIndex; i++){
+            rArr.push_back(queue[i]);
+        }
+    }
+    return rArr;
+}
+
 //main.cpp
 #include <iostream>
 #include "Queue.cpp"
