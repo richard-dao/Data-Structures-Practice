@@ -200,8 +200,8 @@ public class TreeMap {
 		if (current == null) {
 			return;
 		}
-		printPreOrder(current.left);
-		printPreOrder(current.right);
+		printPostOrder(current.left);
+		printPostOrder(current.right);
 		System.out.print("[" + current.key + " : " + Integer.toString(current.value) + "]");
 	}
 
