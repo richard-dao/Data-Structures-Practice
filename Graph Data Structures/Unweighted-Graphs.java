@@ -162,7 +162,7 @@ public class main {
         }
         System.out.println();
         System.out.println(d.hasPathTo(9));
-        System.out.printn(b.hasPathTo(9));
+        System.out.println(b.hasPathTo(9));
 
     }
 }
