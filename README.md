@@ -55,7 +55,7 @@ March 27, 2021 - Started + Finished Minimum Heap (as Array + converted to Tree) 
 <br>
 March 28, 2021 - Implmented Minimum Heap into Python [Python]
 <br>
-April 9, 2021 - Started Undirected Graphs [Java]
+April 9, 2021 - Started Unweighted Graphs [Java]
 <br>
 April 10, 2021 - Began Implementing Unweighted Graphs into Python [Python]
 <br>
@@ -70,3 +70,9 @@ April 24, 2021 - Finished Implementing Weighted Graphs [Java]
 April 25, 2021 - Implemented Weighted Graphs into Python [Python]
 <br>
 April 26, 2021 - Implemented Singly, Doubly, Circularly, and Doubly-Circular Linked Lists + Binary Search Trees + HashMaps + Stacks + Queues into C++ [C++]
+<br>
+April 29, 2021 - Implemented TreeMaps into C++ [C++]
+<br>
+May 3, 2021 - Implemented Minimum Heap into C++ [C++]
+<br>
+May 4, 2021 - Implemented Priority Queues and Unweighted Graphs into C++ [C++]
